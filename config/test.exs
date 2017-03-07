@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :steno, Steno.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "steno",
+  password: "Vos2yei3ri2L",
   database: "steno_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

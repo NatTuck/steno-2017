@@ -11,7 +11,15 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+import "phoenix_html";
+
+import jQuery from 'jquery';
+window.jQuery = jQuery;
+window.$ = jQuery;
+
+require("bootstrap-sass");
+import Vue from 'vue/dist/vue.js';
+window.Vue = Vue;
 
 // Import local files
 //
@@ -19,3 +27,6 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import "./shell";
+

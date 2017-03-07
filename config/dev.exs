@@ -51,8 +51,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :steno, Steno.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "steno",
+  password: "Vos2yei3ri2L",
   database: "steno_dev",
   hostname: "localhost",
   pool_size: 10
