@@ -21,6 +21,9 @@ require("bootstrap-sass");
 import Vue from 'vue/dist/vue.js';
 window.Vue = Vue;
 
+import UJS from "phoenix_ujs";
+window.UJS = UJS;
+
 // Import local files
 //
 // Local files can be imported directly using relative

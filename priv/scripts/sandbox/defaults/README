@@ -1,0 +1,39 @@
+== Autograding process:
+
+Two files:
+ - Student submission
+ - Grading file
+
+The student submission should be one of:
+ - A stand-alone file
+ - A .tar.gz archive
+ - A zip archive
+
+If the student submission is an archive and contains
+exactly one (non-hidden) directory, the stuff in that
+directory is unnested for grading.
+
+A grading file should be one of:
+ - A single script with a valid schebang line.
+ - A .tar.gz archive containing multiple scripts
+   (in /grading) and possible supplemental data.
+
+Grading operates as follows:
+ - The container is started.
+ - The submission and grading files are copied into
+   /root in the container.
+ - If the grading file is an archive, it's unpacked.
+   - Otherwise, it's the "grading" script.
+ - Grading occurs in four steps. In each step, a user-provided
+   script is executed in the sandbox if available. Otherwise,
+   a default script is executed.
+ - The four stages are:
+   - setup (run as root)
+   - unpack
+   - build
+   - grade
+ - The standard output of the 'grade' stage is expected to be the
+   test results in some machine readable but human displayable
+   format.
+
+

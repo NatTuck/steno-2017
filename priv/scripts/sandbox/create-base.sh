@@ -16,7 +16,8 @@ lxc exec $NAME -- DEBIAN_FRONTEND=noninteractive \
 lxc exec $NAME -- DEBIAN_FRONTEND=noninteractive \
     apt-get upgrade -y
 lxc exec $NAME -- DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y openjdk-8-jdk gradle build-essential clang python3 ruby
+    apt-get install -y openjdk-8-jdk gradle build-essential clang python3 ruby \
+        libipc-system-simple-perl
 
 lxc stop $NAME
 lxc publish $NAME --alias steno-base

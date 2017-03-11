@@ -17,10 +17,14 @@ defmodule Steno.Web.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/jobs", PageController, :jobs
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Steno.Web do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", Steno.Web do
+    pipe_through :api
+
+    resources "/jobs", JobController, except: [:new, :edit]
+  end
 end
+

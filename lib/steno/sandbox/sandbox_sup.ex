@@ -29,9 +29,7 @@ defmodule Steno.Sandbox.Sup do
     {:reply, {:ok, pid}, [ {sandbox_id, pid} | kids ]}
   end
 
-  def handle_info({:EXIT, pid, reason}, kids) do
-    IO.puts "Child process went down"
-    IO.inspect {pid, reason}
+  def handle_info({:EXIT, pid, _reason}, kids) do
     Enum.each kids, fn {sb_id, pp} ->
       if pp == pid do
         Sandbox.cleanup(sb_id)
