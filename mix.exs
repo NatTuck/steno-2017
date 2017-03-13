@@ -34,11 +34,13 @@ defmodule Steno.Mixfile do
      {:phoenix_ecto, "~> 3.2"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:porcelain, "~> 2.0"},
-     {:gproc, "~> 0.6"}]
+     {:gproc, "~> 0.6"},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:ex_machina, "~> 2.0", only: [:dev, :test]},
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
@@ -56,9 +58,11 @@ defmodule Steno.Mixfile do
   end
 
   defp get_goon(_) do
-    goon_url = "https://github.com/alco/goon/releases/download/v1.1.1/goon_linux_amd64.tar.gz"
-    System.cmd("bash", ["-c", "wget -O /tmp/goon.tar.gz #{goon_url}"])
-    System.cmd("bash", ["-c", "(cd /tmp && tar xzf goon.tar.gz)"])
-    System.cmd("bash", ["-c", "cp /tmp/goon ."])
+    unless File.exists?("goon") do
+      goon_url = "https://github.com/alco/goon/releases/download/v1.1.1/goon_linux_amd64.tar.gz"
+      System.cmd("bash", ["-c", "wget -O /tmp/goon.tar.gz #{goon_url}"])
+      System.cmd("bash", ["-c", "(cd /tmp && tar xzf goon.tar.gz)"])
+      System.cmd("bash", ["-c", "cp /tmp/goon ."])
+    end
   end
 end
